@@ -1,0 +1,7 @@
+{
+  "name": "CalorieProfile",
+  "description": "A supportive, intelligent daily companion for tracking calories and exercise to help you maintain a healthy lifestyle.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
