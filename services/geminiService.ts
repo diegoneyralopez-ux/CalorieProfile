@@ -1,3 +1,15 @@
+// --- PRODUCTION SECURITY WARNING ---
+// In a real-world, public-facing application, exposing your API key on the
+// client-side like this is a significant security risk. Anyone could take this key
+// and use it, potentially incurring charges on your account.
+//
+// The recommended approach for a production application is to create a secure
+// backend (e.g., a simple serverless function) that acts as a proxy. The frontend
+// would make requests to your backend, and your backend would securely attach the
+// API key and forward the request to the Gemini API. This keeps the key safe.
+// For the purpose of this self-contained demo, we are using the key directly.
+// ------------------------------------
+
 import { GoogleGenAI, Type } from "@google/genai";
 import { FoodAnalysisResult, ExerciseAnalysisResult } from "../types";
 
