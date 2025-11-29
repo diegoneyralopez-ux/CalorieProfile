@@ -124,7 +124,7 @@ export const FoodLogger: React.FC<LoggerProps> = ({ onAddLog, onCancel, initialT
   };
 
   return (
-    <div className="space-y-6 pb-20">
+    <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
             <h2 className="text-2xl font-black text-brand-dark uppercase tracking-tight">Add Food</h2>

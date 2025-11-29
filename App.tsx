@@ -8,6 +8,23 @@ import { LogEntry, UserProfile, LogType } from './types';
 import { DEFAULT_PROFILE, NAV_ITEMS, APP_NAME, getTodayDateString } from './constants';
 import { LogOut } from 'lucide-react';
 
+// New layout component to wrap pages and include ad space
+const PageLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  return (
+    // This wrapper provides padding at the bottom for the ad and the fixed mobile nav.
+    <div className="pb-32 md:pb-0"> 
+      {children}
+      {/* Ad space container - consistently placed at the end of page content */}
+      <div className="mt-8">
+        <div className="w-full h-24 bg-slate-200 border border-brand-gray rounded-lg flex items-center justify-center text-slate-500 font-medium text-sm">
+          <span className="uppercase tracking-wider">Advertisement</span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+
 export default function App() {
   // -- State --
   const [activeTab, setActiveTab] = useState('dashboard');
@@ -114,29 +131,29 @@ export default function App() {
   const renderContent = () => {
     switch (activeTab) {
       case 'dashboard':
-        return <Dashboard logs={logs} userProfile={userProfile} onNavigate={handleNavigate} />;
+        return <PageLayout><Dashboard logs={logs} userProfile={userProfile} onNavigate={handleNavigate} /></PageLayout>;
       case 'food':
-        return <FoodLogger 
+        return <PageLayout><FoodLogger 
                   onAddLog={handleAddLog} 
                   onCancel={() => handleNavigate('dashboard')} 
                   initialText={navParams.initialText}
                   initialMode={navParams.initialMode}
                   recentLogs={logs}
                   userProfile={userProfile}
-               />;
+               /></PageLayout>;
       case 'exercise':
-        return <ExerciseLogger 
+        return <PageLayout><ExerciseLogger 
                   onAddLog={handleAddLog} 
                   onCancel={() => handleNavigate('dashboard')} 
                   initialText={navParams.initialText}
                   userProfile={userProfile}
-                />;
+                /></PageLayout>;
       case 'history':
-        return <MealHistory logs={logs} />;
+        return <PageLayout><MealHistory logs={logs} /></PageLayout>;
       case 'profile':
-        return <ProfileSettings profile={userProfile} onSave={handleSaveProfile} />;
+        return <PageLayout><ProfileSettings profile={userProfile} onSave={handleSaveProfile} /></PageLayout>;
       default:
-        return <Dashboard logs={logs} userProfile={userProfile} onNavigate={handleNavigate} />;
+        return <PageLayout><Dashboard logs={logs} userProfile={userProfile} onNavigate={handleNavigate} /></PageLayout>;
     }
   };
 

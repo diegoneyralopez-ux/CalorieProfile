@@ -49,7 +49,7 @@ export const MealHistory: React.FC<MealHistoryProps> = ({ logs }) => {
   }, [foodLogs]);
 
   return (
-    <div className="space-y-6 pb-24">
+    <div className="space-y-6">
       <div className="flex flex-col gap-1">
         <h1 className="text-2xl font-black text-brand-dark uppercase tracking-tight">History</h1>
         <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Past Meals</p>

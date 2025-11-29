@@ -46,7 +46,7 @@ export const ProfileSettings: React.FC<ProfileSettingsProps> = ({ profile, onSav
   };
 
   return (
-    <div className="space-y-6 pb-20">
+    <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
             <h1 className="text-2xl font-black text-brand-dark uppercase tracking-tight">Profile</h1>

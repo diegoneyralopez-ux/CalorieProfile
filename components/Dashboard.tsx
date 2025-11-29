@@ -94,7 +94,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ logs, userProfile, onNavig
   };
 
   return (
-    <div className="space-y-8 pb-24">
+    <div className="space-y-8">
       {/* Header Section */}
       <div className="flex flex-col gap-1">
         <h1 className="text-3xl font-extrabold text-brand-dark uppercase tracking-tight">
